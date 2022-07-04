@@ -171,7 +171,7 @@ local function lsp_execute_command(val)
     -- vim.lsp.buf_request(bn,'workspace/executeCommand', command)
     if val.edit or type(val.command) == 'table' then
         if val.edit then
-            vim.lsp.util.apply_workspace_edit(val.edit)
+            vim.lsp.util.apply_workspace_edit(val.edit, "utf-8")
         end
         if type(val.command) == 'table' then
             vim.lsp.buf.execute_command(val.command)
